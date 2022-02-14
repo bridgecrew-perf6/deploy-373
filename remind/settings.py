@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 print(BASE_DIR)
 
 TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
+#STATIC_DIR=os.path.join(BASE_DIR,'static')
 
 ROOT_PATH = os.path.dirname(__file__)
 
@@ -130,5 +130,5 @@ STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 # STATICFILES_DIRS=[
-STATICFILES_DIRS = [os.path.join(ROOT_PATH, 'static')]
+#STATICFILES_DIRS = [os.path.join(ROOT_PATH, 'static')]
 
