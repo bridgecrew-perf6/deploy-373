@@ -1,0 +1,86 @@
+{% load static %}
+{% load embed_video_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pluudo.com</title>
+  <script src="../../static/style.js"></script>
+  <link rel="stylesheet" href="../../static/styles.css">
+</head>
+
+<body onload="myFunction()">
+  
+    <div id="container">
+    <!-- everything else -->
+    </div>
+    <script type="text/javascript">
+      $('#container').css('opacity', 0);
+      $(window).load(function() {
+        $('#container').css('opacity', 1);
+      });
+      </script>
+  <br>
+       <div class="header" style="color:blue;">
+        <a class="pluudo_logo" href="http://localhost:8000">
+          <img src="../static/anne/logo.png" alt="Pluudo_logo">
+        </a>
+        
+        <a class="show_hide_desc" onclick="hide()">
+         <img src="../static/anne/Pluudo_Show_Text.png" alt="videos_description">
+       </a>
+     </div>
+
+         <div id="desc" style="text-align:center; "> </div>
+         
+       <br><br>
+        <!-- <button onclick="hide()">Desc</button> 
+        <a onclick="hide()">
+          <img src="../static/anne/Pluudo_Show_Text.png" alt="">
+        </a>
+        -->
+      <div class="">
+        {% for i in obj %}
+          <div class="videos_list">
+            <div class = "video-container">
+              {% video i.video  %}
+            </div>
+
+            <div class="video_description">
+                
+            {{ i.desc }}, {{ i.added }} 
+            </div>
+            <br> <br> <br>
+          </div> 
+        {% endfor %}
+        </div>
+       </div>
+        <div class="footer">
+          <div class="footer_dimensions">
+
+              <a class="pluudo_mid_icons" href="">
+                <img src="../static/anne/Pluudo_Search.png" alt="Pluudo_Search_icon">
+              </a>
+              <a class="pluudo_mid_icons" href="">
+                <img src="../static/anne/Pluudo_Add_Video.png" alt="Pluudo_Search_icon">
+              </a>
+              <a class="pluudo_mid_icons" href="">
+                <img src="../static/anne/Pluudo_Profile.png" alt="Pluudo_Profile_icon">
+              </a>
+
+          </div>
+          <div>
+            <a class="back_icon" href="#">
+              <img src="../static/anne/BACKBUTTON.png" alt="Pluudo_Home">
+            </a>
+            <a class="pluudo_icon" href="#">
+              <img src="../static/anne/Pluudo_Home.png" alt="Pluudo_Home">
+            </a>
+          </div>
+        </div>
+      </div>  
+
+</body>
+</html>
