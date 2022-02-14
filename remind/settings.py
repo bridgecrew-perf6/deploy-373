@@ -20,6 +20,8 @@ print(BASE_DIR)
 TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
 STATIC_DIR=os.path.join(BASE_DIR,'static')
 
+ROOT_PATH = os.path.dirname(__file__)
+
 STATIC_ROOT = "/home/kudos02/deploy/static"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -127,6 +129,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-STATICFILES_DIRS=[
-STATIC_DIR,
-]
+# STATICFILES_DIRS=[
+STATICFILES_DIRS = [os.path.join(ROOT_PATH, 'static')]
+
