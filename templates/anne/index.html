@@ -13,16 +13,6 @@
 
 <body onload="myFunction()">
   
-    <div id="container">
-    <!-- everything else -->
-    </div>
-    <script type="text/javascript">
-      $('#container').css('opacity', 0);
-      $(window).load(function() {
-        $('#container').css('opacity', 1);
-      });
-      </script>
-  <br>
        <div class="header" style="color:blue;">
         <a class="pluudo_logo" href="http://localhost:8000">
           <img src="../static/anne/logo.png" alt="Pluudo_logo">
@@ -41,22 +31,29 @@
           <img src="../static/anne/Pluudo_Show_Text.png" alt="">
         </a>
         -->
-      <div class="">
-        {% for i in obj %}
-          <div class="videos_list">
-            <div class = "video-container">
-              {% video i.video  %}
-            </div>
+        <div class="">
+          {% for i in obj %}
+          {% video i.video as my_video %}
+            <div class="videos_list">
+              <!-- <div class = "video-container">
+                 {% video my_video  %} 
+                <img src="{{my_video.thumbnail}}" alt="">
+              </div> -->
+              <div style="width: 100%; height: auto">
 
-            <div class="video_description">
+                <a href="http://localhost:8000/video-player?video_id={{i.id}}">
+                  <img style="border-radius: 5%; width: 100%; height: auto" src="{{my_video.thumbnail}}" alt="">
+                </a>
                 
-            {{ i.desc }}, {{ i.added }} 
-            </div>
-            <br> <br> <br>
-          </div> 
-        {% endfor %}
-        </div>
-       </div>
+              </div>
+              <div class="video_description">
+              {{ i.desc }}, {{ i.added }} 
+              </div>
+              <br> <br> 
+            </div> 
+          {% endvideo %}  
+          {% endfor %}
+          </div>
         <div class="footer">
           <div class="footer_dimensions">
 
@@ -72,9 +69,9 @@
 
           </div>
           <div>
-            <a class="back_icon" href="#">
+            <!-- <a class="back_icon" href="#">
               <img src="../static/anne/BACKBUTTON.png" alt="Pluudo_Home">
-            </a>
+            </a> -->
             <a class="pluudo_icon" href="#">
               <img src="../static/anne/Pluudo_Home.png" alt="Pluudo_Home">
             </a>
